@@ -152,7 +152,6 @@ PRODUCT_PACKAGES += \
     acoustics.default \
     com.android.future.usb.accessory \
     dhcpcd.conf \
-    dspexec \
     libCustomWifi \
     libbridge \
     libomap_mm_library_jni \

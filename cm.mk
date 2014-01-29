@@ -22,7 +22,7 @@ PRODUCT_RELEASE_NAME := NookColor
 # common_full_tablet_wifionly.mk to avoid automatically bringing in the wrong
 # boot animation.
 TARGET_SCREEN_HEIGHT := 1024
-TARGET_SCREEN_WIDTH := 600
+TARGET_SCREEN_WIDTH := 480
 
 # Inherit some common CM stuff.
 $(call inherit-product, vendor/cm/config/common_mini_tablet_wifionly.mk)

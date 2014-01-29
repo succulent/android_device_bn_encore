@@ -27,7 +27,8 @@ PRODUCT_COPY_FILES += \
     device/bn/encore/init.encore.rc:root/init.encore.rc \
     device/bn/encore/init.encore.usb.rc:root/init.encore.usb.rc \
     device/bn/encore/ueventd.encore.rc:root/ueventd.encore.rc \
-    device/bn/encore/fstab.encore:root/fstab.encore
+    device/bn/encore/fstab.encore:root/fstab.encore \
+    device/bn/encore/twrp.fstab:recovery/root/etc/twrp.fstab
 
 # key mapping and touchscreen files
 PRODUCT_COPY_FILES += \
@@ -39,21 +40,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
    $(LOCAL_PATH)/etc/powervr.ini:system/etc/powervr.ini
 
-# Wifi firmware (modules are built from source)
-#PRODUCT_COPY_FILES += \
-#    device/bn/encore/firmware/ti-connectivity/LICENSE:system/etc/firmware/ti-connectivity/LICENSE \
-#    device/bn/encore/firmware/ti-connectivity/wl127x-fw-4-mr.bin:system/etc/firmware/ti-connectivity/wl127x-fw-4-mr.bin \
-#    device/bn/encore/firmware/ti-connectivity/wl127x-fw-4-plt.bin:system/etc/firmware/ti-connectivity/wl127x-fw-4-plt.bin \
-#    device/bn/encore/firmware/ti-connectivity/wl127x-fw-4-sr.bin:system/etc/firmware/ti-connectivity/wl127x-fw-4-sr.bin \
-#    device/bn/encore/firmware/ti-connectivity/wl1271-nvs_127x.bin:system/etc/firmware/ti-connectivity/wl1271-nvs_127x.bin
+# Wifi/BT
+$(call inherit-product, hardware/ti/wpan/ti-wpan-products.mk)
+$(call inherit-product, hardware/ti/wlan/mac80211/wl127x-wlan-products.mk)
 PRODUCT_COPY_FILES += \
     hardware/ti/wlan/mac80211/firmware/127x/LICENCE:system/etc/firmware/ti-connectivity/LICENCE
-
-PRODUCT_PACKAGES += \
-    wl127x-fw-4-sr.bin \
-    wl127x-fw-4-mr.bin \
-    wl127x-fw-4-plt.bin \
-    wl1271-nvs_127x.bin
 
 # Script to edit the shipped nvs file to insert the device's assigned MAC
 # address
@@ -152,7 +143,7 @@ PRODUCT_COPY_FILES += \
 # ramdisk_tools.sh -- use on-demand for various ramdisk operations, such as
 # repacking the ramdisk for use on an SD card or alternate emmc partitions
 PRODUCT_COPY_FILES += \
-        $(LOCAL_PATH)/ramdisk_tools.sh:ramdisk_tools.sh
+    $(LOCAL_PATH)/ramdisk_tools.sh:ramdisk_tools.sh
 
 # postrecoveryboot for recovery
 PRODUCT_COPY_FILES += \
@@ -164,8 +155,6 @@ PRODUCT_PACKAGES += \
     lights.encore \
     sensors.encore \
     power.encore \
-    uim-sysfs \
-    libbt-vendor \
     libaudioutils \
     audio.a2dp.default \
     libaudiohw_legacy \
@@ -214,19 +203,19 @@ PRODUCT_PACKAGES += \
     libVendor_ti_omx
 
 PRODUCT_PACKAGES += \
-        libskiahw
+    libskiahw
 
 # from omap3.mk.
 
 PRODUCT_PACKAGES += \
-	libdomx \
-	libstagefrighthw \
-	libion \
-	smc_pa_ctrl \
-	tf_daemon
+    libdomx \
+    libstagefrighthw \
+    libion \
+    smc_pa_ctrl \
+    tf_daemon
 
 PRODUCT_PACKAGES += \
-	cexec.out
+    cexec.out
 
 PRODUCT_CHARACTERISTICS := tablet
 

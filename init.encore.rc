@@ -40,6 +40,7 @@ on init
 on fs
     # mount partitions
     mount_all /fstab.encore
+    swapon_all /fstab.encore
 
 on post-fs-data
     # we will remap this as /mnt/sdcard with the sdcard fuse tool

@@ -10,7 +10,7 @@ persist.sys.usb.config=mtp,adb
 ro.emmc=1
 
 ro.opengles.version=131072
-#ro.sf.hwrotation=270
+ro.sf.hwrotation=270
 ro.sf.lcd_density=160
 
 # 512 MB is "low RAM" for Android purposes

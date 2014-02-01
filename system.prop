@@ -4,7 +4,7 @@
 wifi.interface=wlan0
 wifi.supplicant_scan_interval=30
 
-ro.vold.switchablepair=/storage/sdcard1,/storage/sdcard0
+persist.sys.vold.switchablepair=/storage/sdcard0,/storage/sdcard1
 ro.cwm.forbid_format=/boot,/rom
 persist.sys.usb.config=mtp,adb
 ro.emmc=1
@@ -20,3 +20,6 @@ ro.hwui.disable_scissor_opt=true
 # GPU producer to CPU consumer not supported
 ro.bq.gpu_to_cpu_unsupported=1
 ro.ksm.default=1
+
+persist.sys.vold.switchexternal=0
+#persist.sys.env.switchexternal=1
